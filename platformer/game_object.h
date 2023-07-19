@@ -6,6 +6,8 @@
 
 typedef uint16_t Tag;
 
+class Window;
+
 class GameObject
 {
 private:

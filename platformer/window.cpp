@@ -22,13 +22,14 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
 
     // Create renderer
     Uint32 renderer_flags = SDL_RENDERER_ACCELERATED;
-    
+
     renderer = SDL_CreateRenderer(window, -1, renderer_flags);
     if (renderer == NULL)
     {
         std::cout << "SDL could not create renderer, SDL_Error: " << SDL_GetError() << "\n";
         return;
     }
+
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
