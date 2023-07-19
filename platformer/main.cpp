@@ -12,11 +12,20 @@ int main(int argc, char* args[])
 	std::vector<std::unique_ptr<GameObject>> game_objects;
 
 	game_objects.push_back(std::make_unique<Block>(&window, 100, 100));
+	game_objects.push_back(std::make_unique<Block>(&window, 200, 100));
+	game_objects.push_back(std::make_unique<Block>(&window, 300, 400));
 
 	while (window.IsOpen())
 	{
 		window.PollEvents();
 		window.Clear();
+
+		for (int i = 0; i < game_objects.size(); i++)
+		{
+			game_objects[i]->Update(0);
+			game_objects[i]->Draw();
+		}
+
 		window.Refresh();
 	}
 }

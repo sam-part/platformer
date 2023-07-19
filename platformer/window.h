@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <unordered_set>
+#include <chrono>
 
 class Window
 {
@@ -17,6 +18,9 @@ private:
 	bool open = false;
 
 	std::unordered_set<int> keypresses;
+
+	uint64_t last_frame_ms;
+	uint64_t GetTimeMS();
 
 public:
 	Window(unsigned int width, unsigned int height, const std::string& window_name);

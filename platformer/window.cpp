@@ -1,5 +1,9 @@
 #include "window.h"
 
+uint64_t Window::GetTimeMS()
+{
+}
+
 Window::Window(unsigned int width, unsigned int height, const std::string& window_name)
     : width(width), height(height), window_name(window_name)
 {
@@ -30,8 +34,9 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
         return;
     }
 
-
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
+    last_frame_ms = ;
 
     open = true;
 }
@@ -158,6 +163,7 @@ void Window::DrawRect(int x, int y, int width, int height, SDL_Color color)
 
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(renderer, &rect);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
 
 /*
