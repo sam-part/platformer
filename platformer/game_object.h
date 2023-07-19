@@ -2,7 +2,7 @@
 
 #include <unordered_set>
 
-typedef size_t Tag;
+typedef uint16_t Tag;
 
 class GameObject
 {
