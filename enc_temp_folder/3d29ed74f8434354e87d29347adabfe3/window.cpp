@@ -86,8 +86,6 @@ void Window::SetIcon(const std::string& icon_path)
 
 void Window::PollEvents()
 {
-    keypresses.clear();
-
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
