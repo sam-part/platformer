@@ -149,7 +149,9 @@
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animation_data.h" />
     <ClInclude Include="block.h" />
+    <ClInclude Include="dimensions.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="player.h" />
