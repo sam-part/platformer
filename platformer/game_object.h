@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <memory>
 #include "window.h"
+#include "point.h"
 
 typedef uint16_t Tag;
 
