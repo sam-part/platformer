@@ -5,10 +5,10 @@ class Player : public GameObject
 {
 private:
 	Window* window;
-	SDL_Point position;
+	Point position;
 
 public:
-	Player(Window* window, int x, int y);
+	Player(Window* window, double x, double y, double width, double height);
 
 	void Update(double dt);
 	void Draw();
