@@ -30,6 +30,7 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
         return;
     }
 
+
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
     open = true;
