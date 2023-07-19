@@ -22,7 +22,7 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
 
     // Create renderer
     Uint32 renderer_flags = SDL_RENDERER_ACCELERATED;
-    
+
     renderer = SDL_CreateRenderer(window, -1, renderer_flags);
     if (renderer == NULL)
     {
