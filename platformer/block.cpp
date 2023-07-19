@@ -7,9 +7,9 @@ Block::Block(Window* window, int x, int y)
 	position.y = y;
 }
 
-void Block::Update(double dt) 
+void Block::Update(double dt)
 {
-	position.x += 1;
+	position.x += 1 * dt;
 }
 
 void Block::Draw()
