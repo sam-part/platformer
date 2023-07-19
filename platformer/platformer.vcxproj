@@ -145,12 +145,15 @@
     <ClCompile Include="block.cpp" />
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="block.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="log.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="point.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
