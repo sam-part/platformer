@@ -17,12 +17,15 @@ int main(int argc, char* args[])
 
 	while (window.IsOpen())
 	{
+		window.Tick();
 		window.PollEvents();
 		window.Clear();
 
+		double dt = window.GetFrameDelta() / 1000.0;
+
 		for (int i = 0; i < game_objects.size(); i++)
 		{
-			game_objects[i]->Update(0);
+			game_objects[i]->Update(dt);
 			game_objects[i]->Draw();
 		}
 

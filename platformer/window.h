@@ -20,6 +20,7 @@ private:
 	std::unordered_set<int> keypresses;
 
 	uint64_t last_frame_ms;
+	uint64_t frame_delta_ms;
 	uint64_t GetTimeMS();
 
 public:
@@ -34,6 +35,10 @@ public:
 
 	void SetIcon(const std::string& icon_path);
 
+	// Returns the time elapsed since the last frame in milliseconds
+	uint64_t GetFrameDelta();
+
+	void Tick();
 	void PollEvents();
 	void Clear();
 	void Refresh();

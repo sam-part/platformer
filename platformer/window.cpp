@@ -2,6 +2,7 @@
 
 uint64_t Window::GetTimeMS()
 {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
 }
 
 Window::Window(unsigned int width, unsigned int height, const std::string& window_name)
@@ -36,7 +37,7 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
-    last_frame_ms = ;
+    last_frame_ms = GetTimeMS();
 
     open = true;
 }
@@ -88,6 +89,18 @@ void Window::SetIcon(const std::string& icon_path)
 
     SDL_FreeSurface(icon_surface);
     icon_surface = nullptr;
+}
+
+uint64_t Window::GetFrameDelta()
+{
+    return frame_delta_ms;
+}
+
+void Window::Tick()
+{
+    uint64_t now = GetTimeMS();
+    frame_delta_ms = now - last_frame_ms;
+    last_frame_ms = now;
 }
 
 void Window::PollEvents()
