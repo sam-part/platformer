@@ -1,6 +1,7 @@
 #include "window.h"
 
 Window::Window(unsigned int width, unsigned int height, const std::string& window_name)
+    : width(width), height(height), window_name(window_name)
 {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -30,6 +31,8 @@ Window::Window(unsigned int width, unsigned int height, const std::string& windo
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
+    open = true;
 }
 
 Window::~Window()
@@ -40,4 +43,113 @@ Window::~Window()
 
     window = nullptr;
     renderer = nullptr;
+}
+
+void Window::Resize(unsigned int new_width, unsigned int new_height)
+{
+    SDL_SetWindowSize(window, new_width, new_height);
+}
+
+void Window::SetFullscreen(bool fullscreen)
+{
+    Uint32 flags = 0;
+    if (fullscreen)
+        flags = SDL_WINDOW_FULLSCREEN;
+
+    SDL_SetWindowFullscreen(window, flags);
+}
+
+int Window::GetWidth()
+{
+    return width;
+}
+
+int Window::GetHeight()
+{
+    return height;
+}
+
+void Window::SetIcon(const std::string& icon_path)
+{
+    SDL_Surface* icon_surface = IMG_Load(icon_path.c_str());
+    if (icon_surface == NULL)
+    {
+        std::cout << "IMG_Error: " << IMG_GetError() << "\n";
+        return;
+    }
+
+    SDL_SetWindowIcon(window, icon_surface);
+
+    SDL_FreeSurface(icon_surface);
+    icon_surface = nullptr;
+}
+
+void Window::PollEvents()
+{
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+        case SDL_QUIT:
+            CloseWindow();
+            break;
+
+        case SDL_KEYDOWN:
+            keypresses.insert(event.key.keysym.sym);
+            break;
+
+        case SDL_WINDOWEVENT:
+            if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
+            {
+                width = event.window.data1;
+                height = event.window.data2;
+            }
+
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+
+void Window::Clear()
+{
+    SDL_RenderClear(renderer);
+}
+
+void Window::Refresh()
+{
+    SDL_RenderPresent(renderer);
+}
+
+bool Window::IsKeyDown(int key)
+{
+    return keypresses.contains(key);
+}
+
+bool Window::IsOpen()
+{
+    return open;
+}
+
+void Window::CloseWindow()
+{
+    open = false;
+}
+
+void Window::Draw(SDL_Texture* texture, const SDL_Rect& source, const SDL_Rect& destination)
+{
+    SDL_RenderCopy(renderer, texture, &source, &destination);
+}
+
+void Window::Draw(SDL_Texture* texture, const SDL_Rect& source, const SDL_Rect& destination, double angle, const SDL_Point& center, SDL_RendererFlip flip)
+{
+    SDL_RenderCopyEx(renderer, texture, &source, &destination, angle, &center, flip);
+}
+
+SDL_Renderer* Window::GetRenderer()
+{
+    return renderer;
 }
