@@ -2,10 +2,9 @@
 
 #include <unordered_set>
 #include <memory>
+#include "window.h"
 
 typedef uint16_t Tag;
-
-class Window;
 
 class GameObject
 {

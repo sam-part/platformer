@@ -151,7 +151,17 @@ void Window::Draw(SDL_Texture* texture, const SDL_Rect& source, const SDL_Rect& 
     SDL_RenderCopyEx(renderer, texture, &source, &destination, angle, &center, flip);
 }
 
+void Window::DrawRect(int x, int y, int width, int height, SDL_Color color)
+{
+    SDL_Rect rect(x, y, width, height);
+
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(renderer, &rect);
+}
+
+/*
 SDL_Renderer* Window::GetRenderer()
 {
     return renderer;
 }
+*/
