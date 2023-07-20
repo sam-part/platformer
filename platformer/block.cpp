@@ -9,7 +9,8 @@ Block::Block(Window* window, int x, int y)
 
 void Block::Update(double dt)
 {
-	position.x += 1 * dt;
+	//if(window->IsKeyDown())
+	//position.x += 10.0 * dt;
 }
 
 void Block::Draw()

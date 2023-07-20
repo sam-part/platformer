@@ -6,7 +6,7 @@ class Block : public GameObject
 {
 private:
 	Window* window;
-	SDL_Point position;
+	Point position;
 
 public:
 	Block(Window* window, int x, int y);

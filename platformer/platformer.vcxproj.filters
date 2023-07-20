@@ -38,9 +38,6 @@
     <ClInclude Include="game_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
