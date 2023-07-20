@@ -56,8 +56,5 @@
     <ClInclude Include="animation_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="direction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

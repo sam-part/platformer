@@ -51,9 +51,9 @@ SDL_Rect Player::Source()
 	return source;
 }
 
-void Player::Move(Direction direction, double speed)
+void Player::Move(Point direction, double speed)
 {
-	Direction movement_direction = GetUnitDirection(direction);
+	Point movement_direction = GetUnitDirection(direction);
 	position += (movement_direction * speed);
 }
 

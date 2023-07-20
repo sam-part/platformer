@@ -1,4 +1,5 @@
 #pragma once
+
 #include "game_object.h"
 #include "animation_data.h"
 
@@ -10,9 +11,9 @@ private:
 	Window* window;
 	SDL_Texture* texture;
 	Point position;
+	Point direction;
 	Dimensions dimensions;
 	AnimationData animation_data;
-	Direction direction;
 	SDL_Rect Destination();
 	SDL_Rect Source();
 
@@ -21,5 +22,5 @@ public:
 
 	void Update(double dt);
 	void Draw();
-	void Move(Direction direction, double speed);
+	void Move(Point direction, double speed);
 };
