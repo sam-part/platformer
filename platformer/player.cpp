@@ -62,11 +62,11 @@ void Player::Update(double dt)
 	// update position
 	if (window->IsKeyDown(SDLK_a))
 	{
-		Move(Directions("d_left"), base_speed);
+		Move(Directions::Left, base_speed);
 	}
 	if (window->IsKeyDown(SDLK_d))
 	{
-		Move(Directions("d_right"), base_speed);
+		Move(Directions::Right, base_speed);
 	}
 
 	// animate
