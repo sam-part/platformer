@@ -1,7 +1,9 @@
 #include "player.h"
 
-Player::Player(Window* window, SDL_Texture* texture, double x, double y, double width, double height)
-	:window(window), texture(texture)
+Player::Player(Window* window, SDL_Texture* texture, double x, double y, double width, double height, double base_speed) :
+	window(window),
+	texture(texture),
+	base_speed(base_speed)
 {
 	position.x = x;
 	position.y = y;
@@ -18,6 +20,10 @@ Player::Player(Window* window, SDL_Texture* texture, double x, double y, double 
 		0,
 		0,
 		1.0 / 6.0
+	};
+	direction = {
+		0.0,
+		0.0
 	};
 }
 
@@ -45,11 +51,41 @@ SDL_Rect Player::Source()
 	return source;
 }
 
+void Player::Move(Point direction, double speed)
+{
+	Point movement_direction = GetUnitDirection(direction);
+	position += (movement_direction * speed);
+}
+
 void Player::Update(double dt)
 {
+	// update position
+	if (window->IsKeyDown(SDLK_a))
+	{
+		Move(Directions("d_left"), base_speed);
+	}
+	if (window->IsKeyDown(SDLK_d))
+	{
+		Move(Directions("d_right"), base_speed);
+	}
+
+	// animate
+	animation_data.running_time += dt;
+	if (animation_data.running_time >= animation_data.update_time)
+	{
+		animation_data.running_time = 0;
+		animation_data.frame++;
+
+		if (animation_data.frame >= animation_data.texture_dimensions.width / animation_data.player_dimensions.width)
+		{
+			animation_data.frame = 0;
+		}
+	}
 }
 
 void Player::Draw()
 {
-	window->Draw(texture, Source(), Destination());
+	SDL_Rect source = Source();
+	SDL_Rect destination = Destination();
+	window->Draw(texture, source, destination);
 }
