@@ -38,30 +38,6 @@ Player::Player(Window* window, SDL_Texture* texture, double x, double y, double 
 	};
 }
 
-SDL_Rect Player::Destination()
-{
-	SDL_Rect destination{
-		position.x,
-		position.y,
-		dimensions.x,
-		dimensions.y
-	};
-
-	return destination;
-}
-
-SDL_Rect Player::Source()
-{
-	SDL_Rect source{
-		0 + animation_data.player_dimensions.width * animation_data.frame,
-		0,
-		animation_data.player_dimensions.width,
-		animation_data.player_dimensions.height
-	};
-
-	return source;
-}
-
 void Player::Move(Point direction, double speed)
 {
 	Point movement_direction = GetUnitDirection(direction);
@@ -90,13 +66,13 @@ void Player::Update(double dt)
 		animation_data.running_time = 0;
 		animation_data.frame++;
 
-		if (animation_data.frame >= animation_data.texture_dimensions.width / animation_data.player_dimensions.width)
+		if (animation_data.frame >= animation_data.texture_dimensions.x / animation_data.player_dimensions.y)
 		{
 			animation_data.frame = 0;
 		}
 	}
 
-	source.x = 0 + animation_data.player_dimensions.width * animation_data.frame;
+	source.x = 0 + animation_data.player_dimensions.x * animation_data.frame;
 	source.y = position.y;
 }
 
