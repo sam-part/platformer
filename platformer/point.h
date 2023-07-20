@@ -22,8 +22,8 @@ struct Point
 
 	Point& operator + (const Point& other)
 	{
-		x += other.x;
-		y += other.y;
+		x + other.x;
+		y + other.y;
 		return *this;
 	}
 
@@ -36,8 +36,8 @@ struct Point
 
 	Point& operator - (const Point& other)
 	{
-		x -= other.x;
-		y -= other.y;
+		x - other.x;
+		y - other.y;
 		return *this;
 	}
 
