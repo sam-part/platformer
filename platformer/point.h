@@ -30,11 +30,9 @@ struct Point
 		return Point(x - other.x, y - other.y);
 	}
 
-	Point& operator -= (const Point& other)
+	Point operator -= (const Point& other)
 	{
-		x -= other.x;
-		y -= other.y;
-		return *this;
+		return Point(x -= other.x, y -= other.y);
 	}
 
 	Point operator * (const double& scalar)
