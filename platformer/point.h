@@ -56,24 +56,12 @@ struct Point
 	}
 };
 
-Point GetUnitDirection(Point direction)
+Point GetUnitDirection(Point direction);
+
+namespace Directions
 {
-	Point unit_direction;
-
-	unit_direction.x = direction.x / sqrt(pow(direction.x, 2) + pow(direction.y, 2));
-	unit_direction.y = direction.y / sqrt(pow(direction.x, 2) + pow(direction.y, 2));
-
-	return unit_direction;
-}
-
-Point Directions(const char* direction)
-{
-	std::map<const char*, Point>directions;
-
-	directions["d_up"] = { 0, -1 };
-	directions["d_down"] = { 0, 1 };
-	directions["d_left"] = { -1, 0 };
-	directions["d_right"] = { 1, 0 };
-
-	return directions[direction];
+	extern Point Up;
+	extern Point Down;
+	extern Point Left; 
+	extern Point Right;
 }
