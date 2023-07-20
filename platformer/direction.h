@@ -25,6 +25,13 @@ typedef struct Direction
 		y += other.y;
 		return *this;
 	}
+
+	Direction& operator - (const Direction& other)
+	{
+		x -= other.x;
+		y -= other.y;
+		return *this;
+	}
 };
 
 Direction GetUnitDirection(Direction direction)
