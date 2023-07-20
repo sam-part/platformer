@@ -45,11 +45,40 @@ SDL_Rect Player::Source()
 	return source;
 }
 
+void Player::Move(SDL_Keycode key)
+{
+
+}
+
 void Player::Update(double dt)
 {
+	// update position
+	if (window->IsKeyDown(SDLK_a))
+	{
+		
+	}
+	if (window->IsKeyDown(SDLK_d))
+	{
+
+	}
+
+	// animate
+	animation_data.running_time += dt;
+	if (animation_data.running_time >= animation_data.update_time)
+	{
+		animation_data.running_time = 0;
+		animation_data.frame++;
+
+		if (animation_data.frame >= animation_data.texture_dimensions.width / animation_data.player_dimensions.width)
+		{
+			animation_data.frame = 0;
+		}
+	}
 }
 
 void Player::Draw()
 {
-	window->Draw(texture, Source(), Destination());
+	SDL_Rect source = Source();
+	SDL_Rect destination = Destination();
+	window->Draw(texture, source, destination);
 }

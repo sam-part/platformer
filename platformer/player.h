@@ -1,6 +1,7 @@
 #pragma once
 #include "game_object.h"
 #include "animation_data.h"
+#include "direction.h"
 
 class Player : public GameObject
 {
@@ -10,6 +11,7 @@ private:
 	Point position;
 	Dimensions dimensions;
 	AnimationData animation_data;
+	Direction direction;
 	SDL_Rect Destination();
 	SDL_Rect Source();
 
@@ -18,4 +20,5 @@ public:
 
 	void Update(double dt);
 	void Draw();
+	void Move(SDL_Keycode key);
 };
