@@ -10,21 +10,12 @@ struct Point
 
 	bool operator == (const Point& other)
 	{
-		return x == other.x && y == other.y;
+		return (x == other.x && y == other.y);
 	}
 
-	Point& operator = (const Point& other)
+	Point operator + (const Point& other)
 	{
-		x = other.x;
-		y = other.y;
-		return *this;
-	}
-
-	Point& operator + (const Point& other)
-	{
-		x + other.x;
-		y + other.y;
-		return *this;
+		return Point(x + other.x, y + other.y);
 	}
 
 	Point& operator += (const Point& other)
@@ -34,11 +25,9 @@ struct Point
 		return *this;
 	}
 
-	Point& operator - (const Point& other)
+	Point operator - (const Point& other)
 	{
-		x - other.x;
-		y - other.y;
-		return *this;
+		return Point(x - other.x, y - other.y);
 	}
 
 	Point& operator -= (const Point& other)
@@ -48,11 +37,9 @@ struct Point
 		return *this;
 	}
 
-	Point& operator * (const double& other)
+	Point operator * (const double& scalar)
 	{
-		x *= other;
-		y *= other;
-		return *this;
+		return Point(x * scalar, y * scalar);
 	}
 };
 
