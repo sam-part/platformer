@@ -52,5 +52,5 @@ public:
 	void Draw(SDL_Texture* texture, const SDL_Rect& source, const SDL_Rect& destination, double angle, const SDL_Point& center, SDL_RendererFlip flip = SDL_RendererFlip::SDL_FLIP_NONE); 
 
 	void DrawRect(int x, int y, int width, int height, SDL_Color color);
-	//SDL_Renderer* GetRenderer();
+	SDL_Renderer* GetRenderer();
 };

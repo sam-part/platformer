@@ -179,9 +179,7 @@ void Window::DrawRect(int x, int y, int width, int height, SDL_Color color)
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
 
-/*
 SDL_Renderer* Window::GetRenderer()
 {
     return renderer;
 }
-*/

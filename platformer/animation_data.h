@@ -1,10 +1,10 @@
 #pragma once
 
-#include "dimensions.h"
+#include "point.h"
 
 struct AnimationData {
-	Dimensions texture_dimensions;
-	Dimensions player_dimensions;
+	Point texture_dimensions;
+	Point player_dimensions;
 	int frame;
 	double running_time;
 	double update_time;

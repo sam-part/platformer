@@ -8,11 +8,13 @@ class Player : public GameObject
 private:
 	double base_speed;
 
+	SDL_Rect source;
+	SDL_Rect destination;
 	Window* window;
 	SDL_Texture* texture;
 	Point position;
 	Point direction;
-	Dimensions dimensions;
+	Point dimensions;
 	AnimationData animation_data;
 	SDL_Rect Destination();
 	SDL_Rect Source();

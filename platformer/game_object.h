@@ -4,7 +4,6 @@
 #include <memory>
 #include "window.h"
 #include "point.h"
-#include "dimensions.h"
 
 typedef uint16_t Tag;
 
