@@ -50,10 +50,10 @@
     <ClInclude Include="point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dimensions.h">
+    <ClInclude Include="animation_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="animation_data.h">
+    <ClInclude Include="movement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -153,6 +153,7 @@
     <ClInclude Include="animation_data.h" />
     <ClInclude Include="block.h" />
     <ClInclude Include="game_object.h" />
+    <ClInclude Include="movement.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="window.h" />

@@ -16,8 +16,6 @@ private:
 	Point direction;
 	Point dimensions;
 	AnimationData animation_data;
-	SDL_Rect Destination();
-	SDL_Rect Source();
 
 public:
 	Player(Window* window, SDL_Texture* texture, double x, double y, double width, double height, double speed);

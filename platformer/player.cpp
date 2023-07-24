@@ -22,8 +22,8 @@ Player::Player(Window* window, SDL_Texture* texture, double x, double y, double 
 
 	source.x = position.x;
 	source.y = 0;
-	source.w = texture_dimensions.x;
-	source.h = texture_dimensions.y;
+	source.w = dimensions.x;
+	source.h = dimensions.y;
 
 	animation_data = {
 		{double(texture_dimensions.x), double(texture_dimensions.y)},
@@ -55,6 +55,14 @@ void Player::Update(double dt)
 	{
 		Move(Directions::Right, base_speed);
 	}
+	if (window->IsKeyDown(SDLK_w))
+	{
+		Move(Directions::Up, base_speed);
+	}
+	if (window->IsKeyDown(SDLK_s))
+	{
+		Move(Directions::Down, base_speed);
+	}
 
 	destination.x = position.x;
 	destination.y = position.y;
@@ -72,11 +80,12 @@ void Player::Update(double dt)
 		}
 	}
 
-	source.x = 0 + animation_data.player_dimensions.x * animation_data.frame;
+	source.x = 0;// +animation_data.player_dimensions.x * animation_data.frame;
 	source.y = position.y;
 }
 
 void Player::Draw()
 {
 	window->Draw(texture, source, destination);
+	window->DrawRect(position.x, position.y, 20, 20, SDL_Color{ 0, 255, 0 });
 }
